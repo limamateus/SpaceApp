@@ -1,5 +1,6 @@
 
-<h1> Passo a Passo sobre o projeto</h1>
+<h1> Passo a Passo sobre a criação do Projeto</h1>
+
 1 - Criar o projeto
 
 npm create vite@latest
@@ -8,7 +9,7 @@ npm create vite@latest
 
 npm Install
 
-3 - istalar poce Syled para uso de CSS
+3 - instalar pacotes Syled para uso de CSS
 
 npm install styled-components@lates
 
