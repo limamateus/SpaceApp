@@ -76,6 +76,7 @@ input {
 button,
 select { 
   text-transform: none;
+  
 }
 button,
 [type="button"],
