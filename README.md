@@ -30,3 +30,14 @@ npm install styled-components@lates
 5 - Criando Componente Banner 
 
 6 - Criando Componete styles para organizar o Barra Lateral e o  Banner
+
+<h2> 3° Criando Componetens Galeria</h2>
+
+1 - Organizar os Componetens no App.jsx
+
+2 - Criar a estrutura de Galerias
+
+3 - Criar Componete Tags
+
+4 - Criando Componete que irá renderizar a imagens
+
