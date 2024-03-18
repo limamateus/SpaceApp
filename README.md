@@ -1,7 +1,7 @@
 
 <h1> Passo a Passo sobre a criação do Projeto</h1>
 
-<h2> 1° Craindo Projeto com Vite e instalando dependecias</h2>
+<h2> 1° Criando Projeto com Vite e instalando dependecias</h2>
 
 1 - Criar o projeto
 
