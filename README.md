@@ -19,17 +19,17 @@ npm install styled-components@lates
 
 <h2> 2° Criando Componetens inicias e instalando fontes</h2>
 
-1 - Criando Componte Cabeçalho
+1 - Criar Componte Cabeçalho
 
-2 - Criando Componete da Barra lateral
+2 - Criar Componete da Barra lateral
 
-3 - Criando um Componente para LiNavacao (li)
+3 - Criar um Componente para LiNavacao (li)
 
 4 - Importação de fonts e implantando no componete EstilosGlobais
 
-5 - Criando Componente Banner 
+5 - Criar Componente Banner 
 
-6 - Criando Componete styles para organizar o Barra Lateral e o  Banner
+6 - Criar Componete styles para organizar o Barra Lateral e o  Banner
 
 <h2> 3° Criando Componetens Galeria</h2>
 
@@ -40,4 +40,15 @@ npm install styled-components@lates
 3 - Criar Componete Tags
 
 4 - Criando Componete que irá renderizar a imagens
+
+<h2> 4° Criando Modal para da Zoon</h2>
+
+1 - Criar componente modal com Html puro
+
+2 - Criar logica para rederizar o modal
+
+3 - Criar estilização do Modal 
+
+4 - Criar a barra de Populares
+
 

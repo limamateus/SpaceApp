@@ -9,14 +9,12 @@ import Galeria from "./componetes/Galeria"
 
 import Fotos from "./fotos.json"
 import { useState } from "react"
+import ModalZoon from "./componetes/ModalZoon"
 // Componete do Fundo do Site em si
 const FundoGradient = styled.div`
 background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
 width: 100%;
 min-height: 100vh;
-img {
-  max-width: 212px;
-}
 `
 
 const AppContainer = styled.div`
@@ -39,7 +37,7 @@ const ConteudoGaleria = styled.section`
 const App = () => {
 
   const [fotosDaGaleria,setFotosDaGaleria] = useState(Fotos)
-
+  const [fotoSelecionada, setFotoSelecionada] = useState(null)
   return (
     <FundoGradient>
       <EstilosGlobais />
@@ -52,14 +50,16 @@ const App = () => {
             backgroundImage={backgroundImage}
             texto={"A galeria mais completa de fotos do espaço!"}
           />
-            <Galeria fotos={fotosDaGaleria}/>
+            <Galeria
+            aoFotoSelecionada={foto => setFotoSelecionada(foto)} 
+             fotos={fotosDaGaleria}/>
           </ConteudoGaleria>
           
 
         </AppMainContainer>
 
       </AppContainer>
-
+      <ModalZoon foto={fotoSelecionada}/>
     </FundoGradient>
   )
 }
