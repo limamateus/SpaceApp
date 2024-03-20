@@ -52,3 +52,14 @@ npm install styled-components@lates
 4 - Criar a barra de Populares
 
 
+<h2> 5° Correção de Bugs, implantando logica de favoritar e filtros</h2>
+
+1 - Criar metodo que irá favoritar 
+
+2 - Criar logica de favoritar 
+
+3 - Corrigir bugs de favoritar, fechar ModalZoon 
+
+4 - Implmentar UseEfffect 
+
+<h2>Fim do Projeto</h2>

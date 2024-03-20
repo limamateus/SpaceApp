@@ -8,7 +8,7 @@ import backgroundImage from "./assets/banner.png"
 import Galeria from "./componetes/Galeria"
 
 import Fotos from "./fotos.json"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ModalZoon from "./componetes/ModalZoon"
 // Componete do Fundo do Site em si
 const FundoGradient = styled.div`
@@ -36,30 +36,71 @@ const ConteudoGaleria = styled.section`
 
 const App = () => {
 
-  const [fotosDaGaleria,setFotosDaGaleria] = useState(Fotos)
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(Fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
+  const [filtro, setFiltro] = useState('')
+  const [tag, setTag] = useState(0)
+  
+
+  useEffect(
+    () => {
+      const fotosFiltradas = Fotos.filter(foto => {
+        const filtroPorTag = !tag || foto.tagId === tag;
+        const filtroPorTitulo = !filtro || foto.titulo.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+        return filtroPorTag && filtroPorTitulo
+      })
+      setFotosDaGaleria(fotosFiltradas)
+    }, [filtro, tag]
+  )
+
+  const aoAlterarFavorito = (foto) => {
+    if (foto.id === fotoSelecionada?.id) {
+      setFotoSelecionada({
+        ...fotoSelecionada,
+        favorita: !fotoSelecionada.favorita
+      })
+    }
+
+    setFotosDaGaleria(fotosDaGaleria.map(fotoDaGaleria => {
+      return {
+        ...fotoDaGaleria,
+        favorita: fotoDaGaleria.id === foto.id ? !foto.favorita : fotoDaGaleria.favorita
+      }
+    }))
+  }
   return (
     <FundoGradient>
       <EstilosGlobais />
       <AppContainer>
-        <Header />
+        <Header
+          filtro={filtro}
+          setFiltro={setFiltro}
+        />
         <AppMainContainer>
           <BarraLateral />
           <ConteudoGaleria>
-          <Banner
-            backgroundImage={backgroundImage}
-            texto={"A galeria mais completa de fotos do espaço!"}
-          />
+            <Banner
+
+              backgroundImage={backgroundImage}
+              texto={"A galeria mais completa de fotos do espaço!"}
+            />
             <Galeria
-            aoFotoSelecionada={foto => setFotoSelecionada(foto)} 
-             fotos={fotosDaGaleria}/>
+              aoAlterarFavorito={aoAlterarFavorito}
+              aoFotoSelecionada={foto => setFotoSelecionada(foto)}
+              fotos={fotosDaGaleria}
+              setTag={setTag}
+            />
+
           </ConteudoGaleria>
-          
+
 
         </AppMainContainer>
 
       </AppContainer>
-      <ModalZoon foto={fotoSelecionada}/>
+      <ModalZoon
+        foto={fotoSelecionada}
+        aoFachar={() => setFotoSelecionada(null)}       
+        aoAlterarFavorito={aoAlterarFavorito} />
     </FundoGradient>
   )
 }

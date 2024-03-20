@@ -30,16 +30,17 @@ const DailogEstilizado = styled.dialog`
     }
 `
 
-const ModalZoon = ({ foto }) => {
+const ModalZoon = ({ foto , aoAlterarFavorito, aoFachar }) => {
 
     return (
         <>
             {foto && <>
                 <OverLay />
-                <DailogEstilizado open={!!foto}>
+                <DailogEstilizado open={!!foto} onClose={aoFachar}>
                     <Imagem
                         foto={foto}
                         expandida={true}
+                        aoAlterarFavorito={aoAlterarFavorito}
                     />
                     <form method="dialog">
                         <BotaoIcone formMethod="dialog">

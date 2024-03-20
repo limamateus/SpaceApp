@@ -31,11 +31,11 @@ const IconeLupa = styled.img`
     margin-right: 10px;
 `;
 
-const CompoTexto = (props) =>{
+const CompoTexto = ({ setFiltro }) =>{
 
     return (
         <ContainerEstilizado >
-            <CampoTextoEstilizado placeholder="O que você procura?" {...props}/>
+            <CampoTextoEstilizado onChange={(evento) => { setFiltro(evento.target.value) }} type="text" placeholder="O que você procura?"/>
             <IconeLupa src={imgLupa} alt="Icone da Lupa"/>
         </ContainerEstilizado >
     )
